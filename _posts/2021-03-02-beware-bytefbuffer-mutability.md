@@ -6,10 +6,12 @@ tags: [Scala, Java, ByteBuffer]
 
 According to the documentation for `java.nio.ByteBuffer.wrap(array)`:
 
-> Wraps a byte array into a buffer.
-  The new buffer will be backed by the given byte array;
-  that is, modifications to the buffer will cause the array to be modified
-  and vice versa.
+```
+Wraps a byte array into a buffer.
+The new buffer will be backed by the given byte array;
+that is, modifications to the buffer will cause the array to be modified
+and vice versa.
+```
 
 Every time you operate on a `ByteBuffer`, you modify it.
 
@@ -35,5 +37,7 @@ val resultB = batchB.map(m => new String(java.util.Base64.getEncoder.encode(m)))
 println(resultB)
 ```
 
+```
 > List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, , ) // A
 > List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=) // B
+```
