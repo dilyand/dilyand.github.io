@@ -8,7 +8,7 @@ I recently realised that ambiguous argument naming has been a major obstacle for
 
 To illustrate, here's a simplified definition of `foldRight`:
 
-```Scala
+```
 def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B =
   as match {
     case Nil => z
@@ -18,7 +18,7 @@ def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B =
 
 and here's a function implemented in terms of `foldRight`:
 
-```Scala
+```
 def doubleToString(l: List[Double]): List[String] =
   foldRight(l, Nil:List[String])((h, t) => h.toString::t)
 ```
@@ -31,7 +31,7 @@ My issue with `h` and `t` in the definition of `doubleToString` is that the inst
 
 By contrast, naming the argument something like `a` forces me to investigate, or else I would have no idea what it is. I can no longer automatically assume that it has anything at all to do with the List `l`:
 
-```Scala
+```
 def doubleToString(l: List[Double]): List[String] =
   foldRight(l, Nil:List[String])((h, a) => h.toString::a)
 ```
