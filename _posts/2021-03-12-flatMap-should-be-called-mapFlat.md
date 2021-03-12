@@ -1,6 +1,6 @@
 ---
 layout: post
-title: `flatMap` should be called `mapFlat`
+title: Should `flatMap` be called `mapFlat`?
 tags: [Scala, flatMap]
 ---
 
