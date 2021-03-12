@@ -2,6 +2,7 @@
 layout: post
 title: Should `flatMap` be called `mapFlat`?
 tags: [Scala, flatMap]
+published: false
 ---
 
 The name of `flatMap` might trick you into thinking that it is the same as `flatten` followed by `map`. But it's exactly the other way around: it's `map` followed by `flatten`.
