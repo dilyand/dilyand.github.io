@@ -6,7 +6,7 @@ tags: [Scala, foldRight]
 
 Say you want to implement a function `add1` that takes a list of integers and adds 1 to each one, so that:
 
-```Scala
+```
 add1(List(1, 2, 3)) == List(2, 3, 4)
 ```
 
@@ -14,7 +14,7 @@ This is trivial with `map` but can `add1` be implemented in terms of `foldRight`
 
 The signature of `foldRight` has two type parameters `A` and `B`:
 
-```Scala
+```
 foldRight[B](z: B)(op: (A, B) => B): B
 ```
 
@@ -24,7 +24,7 @@ If we think about turning `List(1, 2, 3)` into `List(2, 3, 4)`, we might fall in
 
 So, to implement `add1` in terms of `foldRight`, we need to collapse the original list into a single value, which in this case happens to be another list, with the same number of elements which also have the same type:
 
-```Scala
+```
 def add1(l: List[Int]): List[Int] =
   l.foldRight(Nil: List[Int])((x, y) => (x + 1)::y)
 ```
@@ -33,7 +33,7 @@ The parameter `y` is the accumulator. It starts at `Nil` and then each element o
 
 Another way to implement `add1` without using `map` is to write a recursive function that pattern-matches the original list. The pattern-match will have two branches, one for the base case (which here would be the empty list `Nil`) and a recursive branch for a non-empty list:
 
-```Scala
+```
 def add1(l: List[Int]): List[Int] = l match {
   case Nil => Nil
   case h::t => (h + 1)::t
@@ -42,7 +42,7 @@ def add1(l: List[Int]): List[Int] = l match {
 
 So any time we have a pattern-match of this kind:
 
-```Scala
+```
 l match {
   case Nil => ???
   case h::t => ???
