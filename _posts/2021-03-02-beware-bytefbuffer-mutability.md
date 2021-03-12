@@ -29,15 +29,10 @@ val msgBuff: ByteBuffer = ByteBuffer.wrap(msgBytes)
 // scenario A: a stream of records wrapped in a ByteBuffer
 val batchA = List.fill(3)(msgBuff)
 val resultA = batchA.map(m => new String(java.util.Base64.getEncoder.encode(m).array))
-println(resultA)
+println(resultA) // List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, , )
 
 // scenario B: a stream of records kept as Array[Byte]
 val batchB = List.fill(3)(msgBytes)
 val resultB = batchB.map(m => new String(java.util.Base64.getEncoder.encode(m)))
-println(resultB)
-```
-
-```
-> List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, , ) // A
-> List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=) // B
+println(resultB) // List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=)
 ```
