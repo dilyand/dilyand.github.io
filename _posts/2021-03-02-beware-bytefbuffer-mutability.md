@@ -17,7 +17,7 @@ Every time you operate on a `ByteBuffer`, you modify it.
 
 Here's an example comparing how `ByteBuffer` behaves vs `Array[Byte]`. Imagine you receive binary data (such as Thrift-encoded records), which you want to process and then write to a message queue.
 
-```Scala
+```
 import java.nio.ByteBuffer
 
 // a single record received from upstream
@@ -37,7 +37,7 @@ val resultB = batchB.map(m => new String(java.util.Base64.getEncoder.encode(m)))
 println(resultB)
 ```
 
-```bash
+```
 > List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, , ) // A
 > List(SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=, SSBhbSBhIHRlc3QgbWVzc2FnZS4=) // B
 ```
