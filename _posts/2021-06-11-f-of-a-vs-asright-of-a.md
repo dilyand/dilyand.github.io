@@ -1,6 +1,6 @@
 ---
 layout: post
-title: `F[A]` is 'F of A' but what is `asRight[A]`?
+title: F[A] is 'F of A' but what is asRight[A]?
 tags: [Scala, Either, Left, Right]
 ---
 
